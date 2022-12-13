@@ -1,8 +1,4 @@
 import pygame
-import math
-import random
-import tkinter as tk
-from tkinter import messagebox
 from cube import Cube
 
 class Snake():
@@ -18,7 +14,7 @@ class Snake():
 
     def move(self):
         for event in pygame.event.get():
-            if event.type == pygame.QUIT():
+            if event.type == pygame.QUIT:
                 pygame.quit()
             
             keys = pygame.key.get_pressed()
@@ -49,7 +45,7 @@ class Snake():
                 if i == len(self.body) - 1:
                     self.turns.pop(p)
             else:
-                c.move(c.dirnxm, c.dirny)
+                c.move(c.dirnx, c.dirny)
 
     def reset(self, pos):
         self.head = Cube(pos)
@@ -70,7 +66,7 @@ class Snake():
         elif dx == 0 and dy == 1:
             self.body.append(Cube((tail.pos[0], tail.pos[1] - 1)))
         elif dx == 0 and dy == -1:
-            self.body.append(Cube((tail.pos[0], tail.pod[1] + 1)))
+            self.body.append(Cube((tail.pos[0], tail.pos[1] + 1)))
 
         self.body[-1].dirnx = dx
         self.body[-1].dirny = dy
